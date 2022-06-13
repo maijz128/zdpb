@@ -1,0 +1,64 @@
+
+html {
+    overflow: auto;
+}
+
+body {
+    line-height: 1 !important;
+}
+
+hr {
+    margin: .5rem 0 !important;
+}
+
+.section {
+    padding: .225rem 1rem !important;
+}
+
+.aies {
+    width: 80%;
+    height: 130px;
+    border: solid 1px #607B8B;
+    line-height: 2;
+    padding: 5px;
+}
+
+@media only screen and (max-width:767px) {
+    .aies {
+        width: 99%;
+    }
+
+    .is-3 {
+        font-size: 14px !important;
+    }
+}
+
+.dbubble-text {
+    display: inline-block;
+    font-size: 14px;
+    color: #303030;
+    line-height: 1.6;
+    font-family: "微软雅黑";
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 2rem !important;
+}
+
+.footer {
+    background-color: #ecf0f1;
+    padding: 2rem 1.5rem 2rem;
+}
+
+.btn {
+    margin-bottom: 4px;
+    margin-right: 4px;
+}
+
+.textarea {
+    max-width: auto !important;
+    height: 380px !important;
+}
