@@ -61,6 +61,8 @@
                                         清空输入框</button>
                                     <span id="copyallcode" class="btn btn-success"
                                         data-clipboard-target="#srcText">复制排版内容</span>
+                                    <span id="copyallcode_markdown" class="btn btn-success"
+                                        data-clipboard-target="#srcText">复制排版内容（Markdown）</span>
                                 </div>
                             </div>
                         </form>
@@ -109,6 +111,45 @@
                         clipboard.on('error', function (e) {
                             JsonsMessageBox($("#copyallcode"), "复制失败，请手动复制");
                         });
+
+                        var clipboardMD = new ClipboardJS('#copyallcode_markdown');
+                        clipboardMD.on('success', function (e) {
+                            if (e.text != "") {
+                                var text = "```\n" + e.text + "\n```\n";
+                                copyToClipBoard(text);
+                                JsonsMessageBox($("#copyallcode_markdown"), "复制成功");
+                            } else {
+                                JsonsMessageBox($("#copyallcode_markdown"), "找不到数据，无法复制");
+                            }
+                        });
+                        clipboardMD.on('error', function (e) {
+                            JsonsMessageBox($("#copyallcode_markdown"), "复制失败，请手动复制");
+                        });
+
+
+                        function copyToClipBoard(text) {
+                            text = text || '被复制的内容，啦啦啦~';
+                            if (navigator.clipboard) {
+                                // clipboard api 复制
+                                navigator.clipboard.writeText(text);
+                            } else {
+                                var textarea = document.createElement('textarea');
+                                document.body.appendChild(textarea);
+                                // 隐藏此输入框
+                                textarea.style.position = 'fixed';
+                                textarea.style.clip = 'rect(0 0 0 0)';
+                                textarea.style.top = '10px';
+                                // 赋值
+                                textarea.value = text;
+                                // 选中
+                                textarea.select();
+                                // 复制
+                                document.execCommand('copy', true);
+                                // 移除输入框
+                                document.body.removeChild(textarea);
+                            }
+                        }
+
 
                         function JsonsMessageBox(target, msg) {
                             target.attr("data-original-title", msg);
