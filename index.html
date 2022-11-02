@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,7 +17,6 @@
 
 <body>
 
-
     <section class="section">
         <div class="container">
             <div class="column is-12 is-offset-1">
@@ -24,7 +24,6 @@
                     <h1 class="title is-3">在线文字排版工具</h1>
 
                     <hr>
-
 
                     <div class="panel-body">
                         <!--页头-->
@@ -43,34 +42,38 @@
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <input onclick="format()" value="一键排版" type="button" name="body"
-                                        class="btn btn-success">
-                                    <input class="btn btn-success" onclick="formatjs()" value="清除HTML标签" type="button"
-                                        name="body">
+                                        class="btn btn-primary">
+                                    <input onclick="formatXS()" value="一键排版（小说）" type="button" name="body"
+                                        class="btn btn-primary">
                                     <input onclick="format3()" value="添加空行" type="button" name="body3"
-                                        class="btn btn-success">
+                                        class="btn btn-primary">
+                                    <input class="btn btn-default" onclick="formatjs()" value="清除HTML标签" type="button"
+                                        name="body">
+
                                     <input onclick="format4()" value="英文标点转中文标点" type="button" name="chang"
-                                        class="btn btn-success">
+                                        class="btn btn-default">
                                     <input id="buttonj2f" title="简繁转换" onclick="j2f()" value="简-&gt;繁" type="button"
-                                        name="jachang" class="btn btn-success">
+                                        name="jachang" class="btn btn-default">
+                                    <br>
                                     <input onclick="CheckWords()" value="检查错别字" type="button" name="errword"
-                                        class="btn btn-success">
+                                        class="btn btn-info">
                                     <input onclick="chklen()" value="统计字数" type="button" name="len"
-                                        class="btn btn-success">
+                                        class="btn btn-info">
+                                    <br>
                                     <button type="button" class="btn btn-danger"
-                                        onclick="javascript:$(&#39;#srcText&#39;).val(&#39;&#39;).focus(); ">
-                                        清空输入框</button>
-                                    <span id="copyallcode" class="btn btn-success"
+                                        onclick="ClearText()">清空输入框</button>
+                                    <span id="copyallcode" class="btn btn-warning"
                                         data-clipboard-target="#srcText">复制排版内容</span>
-                                    <span id="copyallcode_markdown" class="btn btn-success"
+                                    <span id="copyallcode_markdown" class="btn btn-warning"
                                         data-clipboard-target="#srcText">复制排版内容（Markdown）</span>
                                 </div>
                             </div>
                         </form>
-                        
+
                         <p>1,可用于小说,论文排版,自动排版,实现纯文本文章的在线排版服务</p>
                         <p> 2,一键让杂乱的文字按指定排版格式显示,使文章更漂亮,更易读</p>
                         <p> 3,轻松搞定繁体字排版哦,让文章排列方式清晰明了</p>
-                       
+
                         <div class="dbubble-text">
                         </div>
                         <!--info-->
@@ -159,7 +162,7 @@
                             var id = setTimeout(function () {
                                 target.attr("data-original-title", "");
                                 target.tooltip('hide');
-                            }, 500);
+                            }, 1000);
                         }
                     </script>
                     <!-- script  -->
